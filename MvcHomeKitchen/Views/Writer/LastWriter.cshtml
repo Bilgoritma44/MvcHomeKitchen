@@ -1,0 +1,31 @@
+﻿@using MvcHomeKitchen.Models.Concrete
+@model List<Writer>
+
+
+<div class="single-gd my-5 tech-btm">
+    <h4>Bize Katılan Son Yazarlar</h4>
+
+    @foreach (var x in Model)
+    {
+<div class="blog-grids row mb-3">
+    <div class="col-md-5 blog-grid-left">
+        <a href="single.html">
+            <img src="@x.PhotoUrl" class="img-fluid" alt="">
+        </a>
+    </div>
+    <div class="col-md-7 blog-grid-right">
+
+        <h5>
+            <a href="single.html">@x.Email </a>
+        </h5>
+        <div class="sub-meta">
+            <span>
+                <i class="fas fa-user"></i> @x.Name @x.Surname
+            </span>
+        </div>
+    </div>
+</div>
+            }
+     
+
+    </div>

@@ -1,0 +1,45 @@
+﻿@model MvcHomeKitchen.Models.Concrete.Class6
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="container">
+    <ol class="breadcrumb mb-4" style="background-color:cornflowerblue">
+        <li class="breadcrumb-item active" style="color:white">Takip Eden Yazarın Adı: @ViewBag.b</li>
+    </ol>
+    <table class="table table-striped">
+        <tr>
+            <th>Id</th>
+            <th>Resim</th>
+            <th>Adı</th>
+            <th>Soyadı</th>
+            <th>Kullanıcı Adı</th>
+            <th>E-mail</th>
+            <th>Şifre</th>
+
+        </tr>
+        @foreach (var y in Model.Deger1)
+        {
+            foreach (var x in Model.Deger2)
+            {
+
+                if (y.TakipEdilen == x.WriterId)
+                {
+                    <tr>
+                        <td>@x.WriterId</td>
+                        <td><img src="@x.PhotoUrl" class="rounded-circle" style="width:50px;height:50px;" /></td>
+                        <td>@x.Name</td>
+                        <td>@x.Surname</td>
+                        <td>@x.Username</td>
+                        <td>@x.Email</td>
+                        <td>@x.Password</td>
+                        
+                    </tr>
+                }
+            }
+        }
+    </table>
+    <a href="/AdminWriter/Index/" class="btn btn-danger float-right"><i class="fa fa-backward"></i> Geri Dön</a>
+</div>
+

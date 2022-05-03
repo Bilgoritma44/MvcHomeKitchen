@@ -1,0 +1,51 @@
+﻿@using MvcHomeKitchen.Models.Concrete
+@model List<Recipe>
+@{
+    ViewBag.Title = "MyRecipe";
+    Layout = "~/Views/Shared/ProfileLayout.cshtml";
+}
+
+<div>
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Tarif Listem</h4>
+            
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Resim </th>
+                        <th>Başlık</th>
+                        <th>Kategori</th>
+                        <th>Tarif</th>
+                        <th>Kişi</th>
+                        <th>Hazırlık</th>
+                        <th>Pişirme</th>
+                        <th>Sil</th>
+                        <th>Düzenle</th>
+                        
+                    </tr>
+                </thead>
+                @foreach (var x in Model)
+                {
+                <tbody>
+                    <tr>
+                        <td class="py-1">
+                            <img src="@x.Url" alt="image" />
+                        </td>
+                        <td>@x.Title</td>
+                        <td>@x.Category.Name</td>
+                        <td>@x.Context</td>
+                        <td>@x.Person</td>
+                        <td>@x.Preparation</td>
+                        <td>@x.Cooking</td>
+                        <td><a href="/WriterProfile/DeleteRecipe/@x.RecipeId" class="btn btn-danger">Sil</a></td>
+                        <td><a href="/WriterProfile/UpdateRecipe/@x.RecipeId" class="btn btn-warning">Düzenle</a></td>
+                        
+                    </tr>
+                </tbody>
+                }
+            </table>
+        </div>
+    </div>
+</div>
+

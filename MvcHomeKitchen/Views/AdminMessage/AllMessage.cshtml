@@ -1,0 +1,25 @@
+﻿@using MvcHomeKitchen.Models.Concrete
+@model List<Message>
+@{
+    ViewBag.Title = "AllMessage";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+@foreach (var x in Model)
+{
+    <div class="card">
+        <div class="card-header">
+            <b>@x.Sender</b> Sana Bir Mesaj Gönderdi.
+            <span class="float-right">@(((DateTime)x.Tarih).ToString("dd-MMM-yyyy"))</span>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">@x.Title</h5>
+            <p class="card-text">@x.Context</p>
+        </div>
+        <div class="card-footer">
+            <a href="/AdminMessage/Cevapla2/@x.MessageId" class="btn btn-warning float-right">Cevapla</a>
+            <a href="/AdminMessage/DeleteMesaj2/@x.MessageId" class="btn btn-danger">Sil</a>
+        </div>
+    </div>
+}
+

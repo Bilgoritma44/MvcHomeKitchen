@@ -1,0 +1,87 @@
+﻿@model MvcHomeKitchen.Models.Concrete.Class2
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/FoodLayout.cshtml";
+}
+
+<link rel="stylesheet" href="~/web/css/single.css">
+<section class="banner-bottom">
+    <!--/blog-->
+    <div class="container">
+        <div class="row">
+            <!--left-->
+            <div class="col-lg-8 left-blog-info-w3layouts-agileits text-left">
+                @foreach (var x in Model.Deger1)
+                {
+                    <div class="blog-grid-top">
+                        <div class="b-grid-top">
+                            <div class="blog_info_left_grid">
+                                <a href="single.html">
+                                    <img src="@x.Url" class="img-fluid" alt="">
+                                </a>
+                            </div>
+                            <div class="blog-info-middle">
+                                <ul>
+                                    <li>
+                                        <a href="#">
+                                            <img src="@x.Writer.PhotoUrl" class="rounded-circle" style="width:25px;height:25px;" /> @x.Writer.Name @x.Writer.Surname
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="far fa-comment"></i> @ViewBag.v1 Yorum,
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h3>
+                            <a href="single.html">@x.Title </a>
+                        </h3>
+                        <p>
+                            @x.Context
+                        </p>
+                        <a href="single.html" class="btn btn-primary read-m">Read More</a>
+                    </div>
+                }
+                <div class="comment-top">
+                    <h4 style="color:red" class="text-center">Yorumlar</h4>
+                    @foreach (var x in Model.Deger2)
+                    {
+                        <div class="media">
+                            <img src="@x.Writer.PhotoUrl" alt="" class="rounded-circle" style="width:75px;height:75px;" />
+                            <div class="media-body">
+                                <h5 class="mt-0">@x.Writer.Name @x.Writer.Surname</h5>
+                                <p>
+                                    @x.Context
+                                </p>
+                            </div>
+                        </div>
+                    }
+                </div>
+                @Html.Action("AddComment", "Blog")
+            </div>
+
+            <!--//left-->
+            <!--right-->
+            <aside class="col-lg-4 agileits-w3ls-right-blog-con text-right">
+                <div class="right-blog-info text-left">
+                    @Html.Action("AboneOl", "Newsletter")
+
+                    @Html.Action("LastCategory", "Category")
+
+                    @Html.Action("LastRecipe", "Recipe")
+
+                    @Html.Action("LastWriter", "Writer")
+
+                    @Html.Action("LastBlog", "Blog")
+
+                </div>
+
+            </aside>
+            <!--//right-->
+        </div>
+    </div>
+</section>
+

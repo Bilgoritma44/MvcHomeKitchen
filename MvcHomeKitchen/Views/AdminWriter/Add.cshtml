@@ -1,0 +1,33 @@
+﻿@model MvcHomeKitchen.Models.Concrete.Writer
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="container">
+    <form class="form-group" method="post">
+        <label><b>Resim</b></label>
+        @Html.TextBoxFor(x => x.PhotoUrl, new { @class = "form-control" })
+        <br />
+        <label><b>Adı</b></label>
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+        <br />
+        <label><b>Soyadı</b></label>
+        @Html.TextBoxFor(x => x.Surname, new { @class = "form-control" })
+        <br />
+        <label><b>Kullanıcı Adı</b></label>
+        @Html.TextBoxFor(x => x.Username, new { @class = "form-control" })
+        <br />
+        <label><b>E-mail</b></label>
+        @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+        <br />
+        <label><b>Şifre</b></label>
+        @Html.TextBoxFor(x => x.Password, new { @class = "form-control" })
+        <br />
+        <div class="form-group">
+            <button type="submit" class="btn btn-danger float-right">Kaydet ve Ekle</button>
+            <a href="/AdminWriter/Index" class="btn btn-default" style="background-color:blueviolet;color:white">Vazgeç</a>
+        </div>
+    </form>
+</div>
+

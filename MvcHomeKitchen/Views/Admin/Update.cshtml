@@ -1,0 +1,26 @@
+﻿@model MvcHomeKitchen.Models.Concrete.Admin
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="container">
+    @using(Html.BeginForm("Update","Admin",FormMethod.Post))
+    { 
+        @Html.HiddenFor(x=>x.AdminId)
+        <label><b>E-mail</b></label>
+        @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+        <br />
+        <label><b>Şifre</b></label>
+        @Html.TextBoxFor(x => x.Password, new { @class = "form-control" })
+        <br />
+        <label><b>Rol</b></label>
+        @Html.TextBoxFor(x => x.Role, new { @class = "form-control" })
+        <br />
+        <div class="form-group">
+            <button type="submit" class="btn btn-warning float-right">Güncelle</button>
+            <a href="/Admin/Index" class="btn btn-danger">Vazgeç</a>
+        </div>
+    }
+</div>
+

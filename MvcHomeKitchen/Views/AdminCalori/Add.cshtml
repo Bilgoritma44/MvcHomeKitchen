@@ -1,0 +1,24 @@
+﻿@model MvcHomeKitchen.Models.Concrete.Calori
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="container">
+    <form class="form-group" method="post">
+        <label><b>Resim</b></label>
+        @Html.TextBoxFor(x => x.PhotoUrl, new {@class="form-control"})
+        <br/>
+        <label><b>Başlık</b></label>
+        @Html.TextBoxFor(x => x.Title, new {@class="form-control"})
+        <br/>
+        <label><b>Açıklama</b></label>
+        @Html.TextAreaFor(x => x.Description,10,3, new {@class="form-control"})
+        <br/>
+        <div class="form-group">
+            <button type="submit" class="btn btn-success float-right">Kaydet ve Ekle</button>
+            <a href="/AdminCalori/Index" class="btn btn-default" style="background-color:darkorchid;color:white">Geri Dön</a>
+        </div>
+    </form>
+</div>
+

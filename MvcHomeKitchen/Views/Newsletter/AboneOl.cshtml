@@ -1,0 +1,13 @@
+﻿<div class="tech-btm">
+    <img src="~/web/images/banner1.jpg" class="img-fluid" alt="">
+</div>
+<div class="tech-btm">
+    <h4>Abone Ol</h4>
+    <p>Nefis Yemek Tariflerinden Haberdar Ol.</p>
+    @using(Html.BeginForm("AboneOl","Newsletter",FormMethod.Post))
+    {
+        <input type="text" name="Email" placeholder="E-mail" required="" class="form-control">
+        <input type="submit" value="Abone Ol">
+    }
+
+</div>

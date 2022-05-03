@@ -1,0 +1,27 @@
+﻿@model MvcHomeKitchen.Models.Concrete.Message
+@{
+    ViewBag.Title = "Gönder";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="container">
+    <h4 class="text-center" style="color:rebeccapurple">Mesaj Gönder</h4>
+    @using (Html.BeginForm("Gönder", "AdminMessage", FormMethod.Post))
+    {
+
+        <label><b>Alıcı E-mail Adresi</b></label>
+        <input type="text" class="form-control" name="Receiver" value="@ViewBag.e" readonly="" />
+        <br />
+        <label><b>Mesaj Başlık</b></label>
+        <input type="text" class="form-control" name="Title" placeholder="Başlık" />
+        <br />
+        <label><b>Mesaj İçerik</b></label>
+        @Html.TextAreaFor(x => x.Context,5,3,new {@class="form-control"})
+        <br/>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary float-right">Gönder</button>
+            <a href="/AdminMessage/Index" class="btn btn-danger">Vazgeç</a>
+        </div>
+    }
+    </div>
+

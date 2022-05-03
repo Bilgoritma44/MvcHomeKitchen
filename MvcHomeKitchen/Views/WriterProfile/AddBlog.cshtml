@@ -1,0 +1,24 @@
+﻿@model MvcHomeKitchen.Models.Concrete.Blog
+@{
+    ViewBag.Title = "AddBlog";
+    Layout = "~/Views/Shared/ProfileLayout.cshtml";
+}
+
+<div class="container">
+    <h4 class="text-center" style="color:red">Blog Ekleme Sayfası</h4>
+    <form class="form-group" method="post">
+        <label><b>Resim Url</b></label>
+        @Html.TextBoxFor(x => x.Url, new { @class = "form-control" })
+        <br />
+        <label><b>Başlık</b></label>
+        @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+        <br />
+        <label><b>Blog</b></label>
+        @Html.TextAreaFor(x => x.Context, 10, 3, new { @class = "form-control" })
+        <br />
+
+        <button type="submit" class="btn btn-success float-right">Blog Ekle</button>
+    </form>
+</div>
+
+

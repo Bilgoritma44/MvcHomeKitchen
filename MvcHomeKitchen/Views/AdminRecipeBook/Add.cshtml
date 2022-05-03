@@ -1,0 +1,21 @@
+﻿@model MvcHomeKitchen.Models.Concrete.RecipeBook
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="container">
+    <form class="form-group" method="post">
+        <label><b>Defter Adı</b></label>
+        @Html.TextBoxFor(x => x.BookName, new { @class = "form-control" })
+        <br />
+        <label><b>Yazar Adı</b></label>
+        @Html.DropDownListFor(x => x.WriterId, (List<SelectListItem>)ViewBag.w, new { @class = "form-control" })
+        <br />
+        <div class="form-group">
+            <button type="submit" class="btn btn-warning float-right">Kaydet ve Ekle</button>
+            <a href="/AdminRecipeBook/Index" class="btn btn-danger">Vazgeç</a>
+        </div>
+    </form>
+</div>
+

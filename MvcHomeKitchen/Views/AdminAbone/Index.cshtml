@@ -1,0 +1,30 @@
+﻿@using MvcHomeKitchen.Models.Concrete
+@model List<Newsletter>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="container">
+
+    <table class="table table-striped">
+        <tr>
+            <th>Id</th>
+            <th>Abone</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+
+        </tr>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.NewsletterId</td>
+                <td>@x.Email</td>
+                <td><a href="/AdminAbone/Delete/@x.NewsletterId" class="btn btn-outline-danger" id="DeleteBtn" onclick="return confirm('Silmek istediğinize emin misiniz?');"><i class="fa fa-trash"></i> Sil</a></td>
+                <td><a href="/AdminAbone/Update/@x.NewsletterId" class="btn btn-outline-warning"><i class="fa fa-edit"></i> Güncelle</a></td>
+            </tr>
+        }
+    </table>
+    <a href="/AdminAbone/Add/" class="btn btn-success float-right"><i class="fa fa-plus"></i> Yeni Abone Ekle</a>
+</div>
+

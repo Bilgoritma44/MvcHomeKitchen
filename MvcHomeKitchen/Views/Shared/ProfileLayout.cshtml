@@ -1,0 +1,145 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Erkanın Mutfağı</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="~/web2/assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="~/web2/assets/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="~/web2/assets/css/style.css">
+    <!-- End layout styles -->
+    <link href="~/web/css/fontawesome-all.css" rel="stylesheet">
+    @*<link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+        <link href="~/Content/font-awesome.css" rel="stylesheet" />*@
+    <link rel="shortcut icon" href="~/web2/assets/images/favicon.ico" />
+</head>
+<body>
+    <div class="container-scroller">
+        <!-- partial:../../partials/_navbar.html -->
+        @Html.Action("Navbar","Partial")
+        <!-- partial -->
+        <div class="container-fluid page-body-wrapper">
+            <!-- partial:../../partials/_sidebar.html -->
+            <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                <ul class="nav">
+                    @Html.Action("Photo","Partial")
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Recipe/Index">
+                            <span class="menu-title">Anasayfa</span>
+                            <i class="fas fa-home menu-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/WriterProfile/Profilem">
+                            <span class="menu-title">Profilim</span>
+                            <i class="fas fa-user-circle menu-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/WriterProfile/Yazar">
+                            <span class="menu-title">Yazarlar</span>
+                            <i class="fas fa-user-plus menu-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/WriterProfile/OlanBiten">
+                            <span class="menu-title">Olan Biten</span>
+                            <i class="far fa-newspaper menu-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/WriterProfile/RecipeBook">
+                            <span class="menu-title">Tarif Defterim</span>
+                            <i class="fas fa-book menu-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/WriterProfile/MyRecipe">
+                            <span class="menu-title">Tariflerim</span>
+                            <i class="fas fa-coffee menu-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/WriterProfile/MyBlog">
+                            <span class="menu-title">Bloglarım</span>
+                            <i class="fas fa-file menu-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/WriterProfile/MyComment">
+                            <span class="menu-title">Yaptığım Yorumlar</span>
+                            <i class="fas fa-comment menu-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/WriterProfile/AddRecipe">
+                            <span class="menu-title">Tarif Gönder</span>
+                            <i class="fas fa-paper-plane menu-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/WriterProfile/AddBlog">
+                            <span class="menu-title">Blog Gönder</span>
+                            <i class="fas fa-clipboard menu-icon"></i>
+                        </a>
+                    </li>
+                    @Html.Action("Partial1", "WriterProfile")
+                    
+                    @Html.Action("Mesaj","Partial")
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Login/LogOut">
+                            <span class="menu-title">Çıkış</span>
+                            <i class="fas fa-sign-out-alt menu-icon"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- partial -->
+
+            <div class="main-panel">
+
+                <div class="content-wrapper">
+                    @RenderBody()
+                </div>
+
+                <footer class="footer">
+                    <div class="container-fluid clearfix">
+                        <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © bootstrapdash.com 2020</span>
+                        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">Bootstrap admin templates </a> from Bootstrapdash.com</span>
+                    </div>
+                </footer>
+                <!-- partial -->
+            </div>
+            <!-- main-panel ends -->
+        </div>
+        <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="~/web2/assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="~/web2/assets/js/off-canvas.js"></script>
+    <script src="~/web2/assets/js/hoverable-collapse.js"></script>
+    <script src="~/web2/assets/js/misc.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <!-- End custom js for this page -->
+    @RenderSection("scripts", false)
+</body>
+</html>

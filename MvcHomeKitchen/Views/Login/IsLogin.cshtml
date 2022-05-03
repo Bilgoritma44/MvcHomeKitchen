@@ -1,0 +1,63 @@
+﻿
+
+@if (!User.Identity.IsAuthenticated)
+{
+    <li class="nav-item text-right" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+
+        <div class="dropdown" style="margin-top:6px">
+            <a class="dropdown-toggle" id="profile-btn" data-toggle="dropdown"
+               aria-expanded="false" style="color:white">
+                <i class="fas fa-user"></i> Giriş Yap
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="profile-btn">
+                <li>
+                    <a class="dropdown-item" href="/Admin/AdminLogin">
+                        <i class="fab fa-linode"></i> Admin Giriş
+                    </a>
+                </li>
+
+
+                <li>
+                    <a class="dropdown-item" href="/Login/UserLogin">
+                        <i class="fas fa-user"></i> Ziyaretci Giriş
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+    </li>
+    <li class="nav-item text-right">
+        <a class="nav-link" href="/Login/Register" style="color:white">
+            <i class="fas fa-registered"></i> Kayıt Ol
+        </a>
+    </li>
+
+
+}
+else
+{
+    <li class="nav-item text-right" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+
+        <div class="dropdown" style="margin-top:6px">
+            <a class="dropdown-toggle" id="profile-btn" data-toggle="dropdown"
+               aria-expanded="false" style="color:white">
+                <i class="fas fa-user"></i> Merhaba @ViewBag.v2
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="profile-btn">
+                <li>
+                    <a class="dropdown-item" href="/WriterProfile/OlanBiten">
+                        <i class="fas fa-user"></i> Profile Git
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+    </li>
+    <li class="nav-item text-right">
+        <a class="nav-link" href="/Login/LogOut" style="color:white">
+            <i class="fas fa-sign-out-alt"></i> Çıkış Yap
+        </a>
+    </li>
+}

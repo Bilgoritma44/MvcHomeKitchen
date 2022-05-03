@@ -1,0 +1,26 @@
+﻿@model MvcHomeKitchen.Models.Concrete.Calori
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="container">
+    @using(Html.BeginForm("Update","AdminCalori",FormMethod.Post))
+    { 
+        @Html.HiddenFor(x=>x.CaloriId)
+        <label><b>Resim</b></label>
+        @Html.TextBoxFor(x => x.PhotoUrl, new { @class = "form-control" })
+        <br />
+        <label><b>Başlık</b></label>
+        @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+        <br />
+        <label><b>Açıklama</b></label>
+        @Html.TextAreaFor(x => x.Description, 10, 3, new { @class = "form-control" })
+        <br />
+        <div class="form-group">
+            <button type="submit" class="btn btn-warning float-right">Güncelle</button>
+            <a href="/AdminCalori/Index" class="btn btn-default" style="background-color:darkorchid;color:white">Geri Dön</a>
+        </div>
+    }
+</div>
+

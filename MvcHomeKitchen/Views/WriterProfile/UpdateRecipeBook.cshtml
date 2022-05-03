@@ -1,0 +1,26 @@
+﻿@model MvcHomeKitchen.Models.Concrete.RecipeBook
+@{
+    ViewBag.Title = "UpdateRecipeBook";
+    Layout = "~/Views/Shared/ProfileLayout.cshtml";
+}
+
+<div class="container">
+    @using (Html.BeginForm("UpdateRecipeBook", "WriterProfile", FormMethod.Post))
+    {
+        <div class="form-group">
+            @Html.HiddenFor(x => x.RecipeBookId)
+
+        </div>
+        <div class="form-group">
+            <label><b>Defter Adı</b></label>
+            @Html.TextBoxFor(x => x.BookName, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-danger float-right">Güncelle</button>
+            <a href="/WriterProfile/RecipeBook" class="btn btn-default" style="background-color:blueviolet;color:white">Vazgeç</a>
+        </div>
+    }
+</div>
+
+
+

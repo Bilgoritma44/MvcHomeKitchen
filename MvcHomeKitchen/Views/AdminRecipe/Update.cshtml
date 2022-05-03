@@ -1,0 +1,39 @@
+﻿@model MvcHomeKitchen.Models.Concrete.Recipe
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="container">
+    @using (Html.BeginForm("Update", "AdminRecipe", FormMethod.Post))
+    {
+        @Html.HiddenFor(x => x.RecipeId)
+        <label><b>Resim</b></label>
+        @Html.TextBoxFor(x => x.Url, new { @class = "form-control" })
+        <br />
+        <label><b>Başlık</b></label>
+        @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+        <br />
+        <label><b>Tarif</b></label>
+        @Html.TextBoxFor(x => x.Context, new { @class = "form-control" })
+        <br />
+        <label><b>Kişi</b></label>
+        @Html.TextBoxFor(x => x.Person, new { @class = "form-control" })
+        <br />
+        <label><b>Hazırlık</b></label>
+        @Html.TextBoxFor(x => x.Preparation, new { @class = "form-control" })
+        <br />
+        <label><b>Pişirme</b></label>
+        @Html.TextBoxFor(x => x.Cooking, new { @class = "form-control" })
+        <br />
+        <label><b>Kategori</b></label>
+        @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.cs, new { @class = "form-control" })
+        <br />
+        <div class="form-group">
+            <button type="submit" class="btn btn-default float-right" style="background-color:orange;color:white">Güncelle</button>
+            <a href="/AdminRecipe/Index" class="btn btn-default" style="background-color:blueviolet;color:white">Vazgeç</a>
+        </div>
+
+    }
+</div>
+

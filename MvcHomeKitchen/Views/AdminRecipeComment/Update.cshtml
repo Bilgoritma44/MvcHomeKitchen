@@ -1,0 +1,26 @@
+﻿@model MvcHomeKitchen.Models.Concrete.RecipeComment
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="container">
+    @using (Html.BeginForm("Update", "AdminRecipeComment", FormMethod.Post))
+    {
+        @Html.HiddenFor(x => x.RecipeCommentId)
+        <label><b>Yorum</b></label>
+        @Html.TextBoxFor(x => x.Context, new { @class = "form-control" })
+        <br />
+        <label><b>Yazar</b></label>
+        @Html.DropDownListFor(x => x.WriterId, (List<SelectListItem>)ViewBag.w, new { @class = "form-control" })
+        <br />
+        <label><b>Tarif</b></label>
+        @Html.DropDownListFor(x => x.RecipeId, (List<SelectListItem>)ViewBag.r, new { @class = "form-control" })
+        <br />
+        <div class="form-group">
+            <button type="submit" class="btn btn-warning float-right">Güncelle</button>
+            <a href="/AdminRecipeComment/Index" class="btn btn-danger">Vazgeç</a>
+        </div>
+    }
+</div>
+

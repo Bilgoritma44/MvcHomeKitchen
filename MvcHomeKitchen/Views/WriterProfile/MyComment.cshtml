@@ -1,0 +1,46 @@
+﻿@using MvcHomeKitchen.Models.Concrete
+@model List<RecipeComment>
+@{
+    ViewBag.Title = "MyComment";
+    Layout = "~/Views/Shared/ProfileLayout.cshtml";
+}
+
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Tarif Yorum Listem</h4>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Tarif </th>
+                        <th>Yazar</th>
+                        <th>Yorum</th>
+                        <th>Sil</th>
+                        <th>Düzenle</th>
+                    </tr>
+                </thead>
+                @foreach (var x in Model)
+                {
+                    <tbody>
+                        <tr>
+                            <td class="py-1">
+                                <img src="@x.Recipe.Url" alt="image" />
+                            </td>
+                            <td>@x.Recipe.Writer.Username</td>
+                            <td>@x.Context</td>
+                            <td><a href="/WriterProfile/DeleteComment/@x.RecipeCommentId" class="btn btn-danger"><i class="fas fa-trash"></i> Sil</a></td>
+                            <td><a href="/WriterProfile/UpdateComment/@x.RecipeCommentId" class="btn btn-warning"><i class="fas fa-edit"></i> Düzenle</a></td>
+                        </tr>
+
+                    </tbody>
+
+                }
+
+            </table>
+        </div>
+    </div>
+</div>
+
+

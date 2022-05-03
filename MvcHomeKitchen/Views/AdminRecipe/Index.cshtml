@@ -1,0 +1,40 @@
+﻿@using MvcHomeKitchen.Models.Concrete
+@model List<Recipe>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="container">
+
+    <table class="table table-striped">
+        <tr>
+            <th>Id</th>
+            <th>Resim</th>
+            <th>Başlık</th>
+            <th>Tarif</th>
+            <th>Kişi</th>
+            <th>Hazırlık</th>
+            <th>Pişirme</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+            <th>Detay</th>
+        </tr>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.RecipeId</td>
+                <td><img src="@x.Url" class="rounded-circle" style="width:50px;height:50px;" /></td>
+                <td>@x.Title</td>
+                <td>@x.Context</td>
+                <td>@x.Person</td>
+                <td>@x.Preparation</td>
+                <td>@x.Cooking</td>
+                <td><a href="/AdminRecipe/Delete/@x.RecipeId" class="btn btn-outline-danger"><i class="fa fa-trash" id="DeleteBtn" onclick="return confirm('Silmek istediğinize emin misiniz?');"></i> Sil</a></td>
+                <td><a href="/AdminRecipe/Update/@x.RecipeId" class="btn btn-outline-warning"><i class="fa fa-edit"></i> Güncelle</a></td>
+                <td><a href="/AdminRecipe/Detail/@x.RecipeId" class="btn btn-outline-info"><i class="fa fa-eye"></i> Detay</a></td>
+            </tr>
+        }
+    </table>
+</div>
+

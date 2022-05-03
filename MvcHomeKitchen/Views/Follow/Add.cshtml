@@ -1,0 +1,14 @@
+﻿@model MvcHomeKitchen.Models.Concrete.Writer
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/ProfileLayout.cshtml";
+}
+
+<div class="container">
+
+    <form class="form-group" method="post">
+        <input type="hidden" name="TakipEdilen" value="@ViewBag.v1" />
+        <button type="submit" class="btn btn-info">Takip Et</button>
+
+    </form>
+</div>

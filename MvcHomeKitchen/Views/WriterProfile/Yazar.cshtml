@@ -1,0 +1,73 @@
+﻿@model MvcHomeKitchen.Models.Concrete.Class3
+@{
+    ViewBag.Title = "Yazar";
+    Layout = "~/Views/Shared/ProfileLayout.cshtml";
+}
+
+<div class="container">
+    <h4 style="color:rebeccapurple" class="text-center">Yazar Listesi</h4>
+    <table class="table table-bordered">
+        <tr>
+            <th>Resim</th>
+            <th>Adı</th>
+            <th>Soyadı</th>
+            <th>Kullanıcı Adı</th>
+            <th>E-mail</th>
+            <th>Takip Et</th>
+        </tr>
+
+        @foreach (var x in Model.Deger1)
+        {
+    <tr>
+        <td><img src="@x.PhotoUrl" class="rounded-circle" style="width:50px;height:50px;" /></td>
+        <td>@x.Name</td>
+        <td>@x.Surname</td>
+        <td>@x.Username</td>
+        <td>@x.Email</td>
+        @foreach (var y in Model.Deger2)
+        {
+            if (@y.TakipEden == ViewBag.v3 && @y.TakipEdilen == @x.WriterId && @y.IsTakip == true)
+            {
+                <td><a href="/Follow/Delete/@x.WriterId" class="btn btn-danger"><i class="fas fa-check"></i> Takip Ediliyor</a></td>
+                break;
+            }
+            if (@y.TakipEden == ViewBag.v3 && @y.TakipEdilen == @x.WriterId && @y.IsTakip == false)
+            {
+                <td><a href="/Follow/Add/@x.WriterId" type="button" class="btn btn-danger" data-toggle="modal" data-target="#Modal1"><i class="fas fa-plus"></i> Takip Et</a></td>
+                break;
+            }
+            if (x.Follow == false)
+            {
+                <td><a href="/Follow/Add/@x.WriterId" class="btn btn-danger"><i class="fas fa-plus"></i> Takip Et</a></td>
+                break;
+            }
+        }
+
+        @*<td><a href="/Follow/Add/@x.WriterId" class="btn btn-danger"><i class="fas fa-plus"></i> Takip Et</a></td>*@
+
+
+
+
+    </tr>
+
+        }
+    </table>
+</div>
+
+
+    @*<button type="button" class="btn btn-danger" style="background-color:thistle" data-toggle="modal" data-target="#Modal1">Popup Penceresi</button>*@
+    <div class="modal" id="Modal1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title text-center">Takip Etme Ekranı</h2>
+
+                </div>
+                <div class="modal-body">
+                    <a href="/WriterProfile/Yazar" class="btn btn-outline-info">Vazgeç</a>
+                    <button type="button" class="btn btn-outline-danger float-lg-right" data-dismiss="modal">Takip Et</button>
+                </div>
+            </div>
+        </div>
+    </div>
+

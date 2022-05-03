@@ -1,0 +1,18 @@
+﻿@model MvcHomeKitchen.Models.Concrete.Newsletter
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="container">
+    <form class="form-group" method="post">
+        <label><b>E-mail</b></label>
+        @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+        <br/>
+        <div class="form-group">
+            <button type="submit" class="btn btn-success float-right">Abone Ekle</button>
+            <a href="/AdminAbone/Index" class="btn btn-danger">Vazgeç</a>
+        </div>
+    </form>
+</div>
+

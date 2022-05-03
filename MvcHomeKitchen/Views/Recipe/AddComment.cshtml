@@ -1,0 +1,15 @@
+﻿@model MvcHomeKitchen.Models.Concrete.RecipeComment
+
+@using (Html.BeginForm("AddComment", "Recipe", FormMethod.Post))
+{
+    <div class="comment-top">
+        <h4>Lütfen Bu Alana Bir Yorum Bırakınız...</h4>
+        <div class="comment-bottom">
+            <form class="form-group">
+                <input type="hidden" class="form-control" name="RecipeId" value="@ViewBag.v1" />  
+                <textarea class="form-control" name="Context" placeholder="Bu Alana Yorumunu Yaz..." required=""></textarea>
+                <button type="submit" class="btn btn-primary submit">Yorumu Gönder</button>
+            </form>
+        </div>
+    </div>
+}

@@ -1,0 +1,71 @@
+﻿@using MvcHomeKitchen.Models.Concrete
+@model List<Message>
+<div class="menu-right">
+    <div class="navbar user-panel-top">
+        <div class="search-box">
+            <form action="#search-results.html" method="get">
+                <input class="search-input" placeholder="Search Here..." type="search" id="search">
+                <button class="search-submit" value=""><span class="fa fa-search"></span></button>
+            </form>
+        </div>
+        <div class="user-dropdown-details d-flex">
+            <div class="profile_details_left">
+                <ul class="nofitications-dropdown">
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-comment-o"></i><span class="badge blue">@ViewBag.s</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <div class="notification_header">
+                                    <h3>@ViewBag.s Yeni Mesajın Var</h3>
+                                </div>
+                            </li>
+                            @foreach (var x in Model)
+                            {
+                            <li>
+                                <a href="#" class="grid">
+                                    <div class="user_img"><img src="~/Resim/p.png" alt=""></div>
+                                    <div class="notification_desc">
+                                        <p>@x.Title</p>
+                                        <span>@(((DateTime)x.Tarih).ToString("dd-MMM-yyyy"))</span>
+                                    </div>
+                                </a>
+                            </li>
+                            }
+                            <li>
+                                <div class="notification_bottom">
+                                    <a href="/AdminMessage/AllMessage" class="bg-primary">Tüm Mesajları Gör</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="profile_details">
+                <ul>
+                    <li class="dropdown profile_details_drop">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="dropdownMenu3" aria-haspopup="true"
+                           aria-expanded="false">
+                            <div class="profile_img">
+                                <img src="~/Resim/p.png" class="rounded-circle" alt="" />
+                                <div class="user-active">
+
+                                    <span></span>
+                                </div>
+                            </div>
+                        </a>
+                        <ul class="dropdown-menu drp-mnu" aria-labelledby="dropdownMenu3">
+                            <li class="user-info">
+                                <h5 class="user-name">@ViewBag.e</h5>
+                                <span class="status ml-2">Online</span>
+                            </li>
+                            <li class="logout"> <a href="/Admin/LogOut"><i class="fa fa-power-off"></i> Çıkış Yap</a> </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

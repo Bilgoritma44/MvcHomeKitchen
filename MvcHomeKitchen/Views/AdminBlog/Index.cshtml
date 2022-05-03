@@ -1,0 +1,37 @@
+﻿@using MvcHomeKitchen.Models.Concrete
+@model List<Blog>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="container">
+
+    <table class="table table-striped">
+        <tr>
+            <th>Id</th>
+            <th>Resim</th>
+            <th>Yazar</th>
+            <th>Başlık</th>
+            <th>Blog</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+            <th>Detay</th>
+        </tr>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.BlogId</td>
+                <td><img src="@x.Url" class="rounded-circle" style="width:50px;height:50px;" /></td>
+                <td><span class="" style="background-color:olive;color:white">@x.Writer.Name @x.Writer.Surname</span></td>
+                <td>@x.Title</td>
+                <td>@x.Context</td>
+                <td><a href="/AdminBlog/Delete/@x.BlogId" class="btn btn-outline-danger" id="DeleteBtn" onclick="return confirm('Silmek istediğinize emin misiniz?');"><i class="fa fa-trash"></i> Sil</a></td>
+                <td><a href="/AdminBlog/Update/@x.BlogId" class="btn btn-outline-warning"><i class="fa fa-edit"></i> Güncelle</a></td>
+                <td><a href="/AdminBlog/Detail/@x.BlogId" class="btn btn-outline-info"><i class="fa fa-eye"></i> Detay</a></td>
+            </tr>
+        }
+    </table>
+    <a href="/AdminBlog/Add/" class="btn btn-success float-right"><i class="fa fa-plus"></i> Yeni Blog Ekle</a>
+</div>
+

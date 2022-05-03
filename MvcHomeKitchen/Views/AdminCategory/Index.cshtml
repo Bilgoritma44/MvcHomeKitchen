@@ -1,0 +1,57 @@
+﻿@using MvcHomeKitchen.Models.Concrete
+@model List<Category>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/web4/assets/js/bootstrap.min.js"></script>
+<script src="~/web4/assets/js/jquery-3.3.1.min.js"></script>
+<script src="~/web4/assets/js/scripts.js"></script>
+<div class="container">
+
+    <table class="table table-striped">
+        <tr>
+            <th>Id</th>
+            <th>Resim</th>
+            <th>Adı</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+            <th>Detay</th>
+        </tr>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.CategoryId</td>
+                <td><img src="@x.PhotoUrl" class="rounded-circle" style="width:50px;height:50px;" /></td>
+                <td>@x.Name</td>
+                <td><a href="/AdminCategory/Delete/@x.CategoryId" class="btn btn-outline-danger" id="DeleteBtn" onclick="return confirm('Silmek istediğinize emin misiniz?');"><i class="fa fa-trash"></i> Sil</a></td>
+                <td><a href="/AdminCategory/Update/@x.CategoryId" class="btn btn-outline-warning"><i class="fa fa-edit"></i> Güncelle</a></td>
+                <td><a href="/AdminCategory/Detail/@x.CategoryId" class="btn btn-outline-info"><i class="fa fa-eye"></i> Detay</a></td>
+            </tr>
+        }
+    </table>
+    <a href="/AdminCategory/Add/" class="btn btn-success float-right"><i class="fa fa-plus"></i> Yeni Kategori Ekle</a>
+</div>
+
+<script>
+    $('#DeleteBtn').click(function () {
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this imaginary file!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    swal("Poof! Your imaginary file has been deleted!", {
+                        icon: "success",
+                    });
+                } else {
+                    swal("Your imaginary file is safe!");
+                }
+            });
+    });
+
+</script>

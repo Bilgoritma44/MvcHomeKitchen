@@ -1,0 +1,23 @@
+﻿@using MvcHomeKitchen.Models.Concrete
+@model List<Blog>
+
+<div class="single-gd tech-btm">
+    <h4>Son Eklenen Blog </h4>
+    @foreach (var x in Model)
+    {
+    <div class="blog-grids">
+        <div class="blog-grid-left">
+            <a href="single.html">
+                <img src="@x.Url" class="img-fluid" alt="">
+            </a>
+        </div>
+        <div class="blog-grid-right">
+
+            <h5>
+                <a href="single.html">@x.Context</a>
+            </h5>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+    }
+</div>

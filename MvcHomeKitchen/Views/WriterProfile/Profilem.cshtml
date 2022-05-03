@@ -1,0 +1,105 @@
+﻿@using MvcHomeKitchen.Models.Concrete
+@model List<Writer>
+@{
+    ViewBag.Title = "Profilem";
+    Layout = "~/Views/Shared/ProfileLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Solo Profile Form a Flat Responsive Widget Template :: w3layouts </title>
+    <!-- Meta tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Solo Profile Form Responsive Widget, Audio and Video players, Login Form Web Template, Flat Pricing Tables, Flat Drop-Downs, Sign-Up Web Templates, Flat Web Templates, Login Sign-up Responsive Web Template, Smartphone Compatible Web Template, Free Web Designs for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design" />
+    <script>
+         addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
+    </script>
+    <!-- Meta tags -->
+    <!-- font-awesome icons -->
+    <link href="~/web3/css/fontawesome-all.min.css" rel="stylesheet" type="text/css" media="all">
+    <!-- //font-awesome icons -->
+    <!--stylesheets-->
+    <link href="~/web3/css/style.css" rel='stylesheet' type='text/css' media="all">
+    <!--//style sheet end here-->
+    <link href="//fonts.googleapis.com/css?family=Montserrat:300,400,500,600" rel="stylesheet">
+</head>
+<body>
+    @foreach (var x in Model)
+    {
+    <div class="container">
+        <form action="#" method="post">
+            <div class="main">
+                <div class="icon-head-wthree">
+                    <div class="images-headder">
+                        <div class="wrap-custom-file float-right">
+                            <input type="file" name="image1" id="image1" accept=".gif, .jpg, .png" />
+                            <label for="image1">
+                                <span><img src="@x.PhotoUrl" alt="" class="image-fluid"></span>
+                                <span class="fas fa-camera-retro"></span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="form-left-to-w3l">
+                    
+                    <input type="text" name="Name" value="@x.Name" required="">
+                    <div class="clear"></div>
+                </div>
+                <div class="form-left-to-w3l">
+                    <input type="text" name="Surname" value="@x.Surname" required="">
+                    <div class="clear"></div>
+                </div>
+                <div class="form-left-to-w3l">
+                    <input type="text" name="Username" value="@x.Username" required="">
+                    <div class="clear"></div>
+                </div>
+                <div class="form-left-to-w3l">
+                    <input type="text" name="Email" value="@x.Email" required="">
+                </div>
+                <div class="form-left-to-w3l ">
+                    <input type="text" name="Password" value="@x.Password" required="">
+                    <div class="clear"></div>
+                </div>
+                @*<div class="btnn">
+                    <button type="submit">Sign Up</button><br>
+                    <div class="clear"></div>
+                </div>*@
+            </div>
+        </form>
+    </div> 
+    }
+        <!--js working-->
+    <script src='~/web3/js/jquery-2.2.3.min.js'></script>
+    <!--//js working-->
+    <script>
+         $('input[type="file"]').each(function(){
+           // Refs
+           var $file = $(this),
+               $label = $file.next('label'),
+               $labelText = $label.find('span'),
+               labelDefault = $labelText.text();
+
+           // When a new file is selected
+           $file.on('change', function(event){
+             var fileName = $file.val().split( '\\' ).pop(),
+                 tmppath = URL.createObjectURL(event.target.files[0]);
+             //Check successfully selection
+             if( fileName ){
+               $label
+                 .addClass('file-ok')
+                 .css('background-image', 'url(' + tmppath + ')');
+               $labelText.text(fileName);
+             }else{
+               $label.removeClass('file-ok');
+               $labelText.text(labelDefault);
+             }
+           });
+
+         // End loop of file input elements
+         });
+    </script>
+</body>
+</html>

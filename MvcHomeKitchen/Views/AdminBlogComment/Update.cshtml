@@ -1,0 +1,26 @@
+﻿@model MvcHomeKitchen.Models.Concrete.BlogComment
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="container">
+    @using (Html.BeginForm("Update", "AdminBlogComment", FormMethod.Post))
+    {
+        @Html.HiddenFor(x => x.BlogCommentId)
+        <label><b>Yorum</b></label>
+        @Html.TextBoxFor(x => x.Context, new { @class = "form-control" })
+        <br />
+        <label><b>Yazar</b></label>
+        @Html.DropDownListFor(x => x.WriterId, (List<SelectListItem>)ViewBag.w, new { @class = "form-control" })
+        <br />
+        <label><b>Tarif</b></label>
+        @Html.DropDownListFor(x => x.BlogId, (List<SelectListItem>)ViewBag.b, new { @class = "form-control" })
+        <br />
+        <div class="form-group">
+            <button type="submit" class="btn btn-warning float-right">Güncelle</button>
+            <a href="/AdminBlogComment/Index" class="btn btn-danger">Vazgeç</a>
+        </div>
+    }
+</div>
+

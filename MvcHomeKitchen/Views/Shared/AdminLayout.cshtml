@@ -1,0 +1,208 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Mvc5 Erkanın Mutfağı</title>
+
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="~/web4/assets/css/style-starter.css">
+
+    <!-- google fonts -->
+    <link href="//fonts.googleapis.com/css?family=Nunito:300,400,600,700,800,900&display=swap" rel="stylesheet">
+</head>
+
+<body class="sidebar-menu-collapsed">
+    <div class="se-pre-con"></div>
+    <section>
+        <!-- sidebar menu start -->
+        <div class="sidebar-menu sticky-sidebar-menu">
+
+            <!-- logo start -->
+            <div class="logo">
+                
+                <h1><a href="/Admin/Index/"><i class="fa fa-home"></i>  Erkan</a></h1>
+            </div>
+
+            <!-- if logo is image enable this -->
+            <!-- image logo --
+            <div class="logo">
+              <a href="index.html">
+                <img src="image-path" alt="Your logo" title="Your logo" class="img-fluid" style="height:35px;" />
+              </a>
+            </div>
+            <!-- //image logo -->
+
+            <div class="logo-icon text-center">
+                <a href="/Admin/Index/" title="logo"><img src="~/web4/assets/images/logo.png" alt="logo-icon"> </a>
+            </div>
+            <!-- //logo end -->
+
+            <div class="sidebar-menu-inner">
+
+                <!-- sidebar nav start -->
+                <ul class="nav nav-pills nav-stacked custom-nav">
+                    <li class="active">
+                        <a href="/AdminCategory/Index"><i class="fa fa-clipboard"></i><span> Kategoriler</span></a>
+                    </li> 
+                    <li>
+                        <a href="/AdminRecipe/Index"><i class="fa fa-apple"></i><span> Tarifler</span></a>
+                    </li>
+                    <li>
+                        <a href="/AdminWriter/Index"><i class="fa fa-group"></i><span> Yazarlar</span></a>
+                    </li>
+                    <li>
+                        <a href="/AdminBlog/Index"><i class="fa fa-coffee"></i><span> Bloglar</span></a>
+                    </li>
+                    <li>
+                        <a href="/AdminMessage/Index"><i class="fa fa-send"></i><span> Mesajlar</span></a>
+                    </li>
+                    <li>
+                        <a href="/AdminRecipeComment/Index"><i class="fa fa-comment"></i><span> Tariflere Yorumlar</span></a>
+                    </li>
+                    <li>
+                        <a href="/AdminBlogComment/Index"><i class="fa fa-comment-o"></i><span> Bloglara Yorumlar</span></a>
+                    </li>
+                    <li>
+                        <a href="/AdminRecipeBook/Index"><i class="fa fa-book"></i><span> Tarif Defterleri</span></a>
+                    </li>
+                    <li>
+                        <a href="/AdminAbone/Index"><i class="fa fa-address-book"></i><span> Aboneler</span></a>
+                    </li>
+                    <li>
+                        <a href="/Admin/Index"><i class="fa fa-user"></i><span> Adminler</span></a>
+                    </li>
+                    <li>
+                        <a href="/AdminCalori/Index"><i class="fa fa-birthday-cake"></i><span> Kaç Kalori?</span></a>
+                    </li>
+                    <li>
+                        <a href="/AdminStatistic/Index"><i class="fa fa-bar-chart"></i><span> İstatistikler</span></a>
+                    </li>
+                    <li>
+                        <a href="/Admin/LogOut"><i class="fa fa-sign-out"></i><span> Çıkış Yap</span></a>
+                    </li>
+                    
+                </ul>
+                <a href="/Admin/LogOut"><i class="fa fa-sign-out"></i><span> Çıkış Yap</span></a>
+                <a class="toggle-btn">
+                    <i class="fa fa-angle-double-left menu-collapsed__left"><span>Menu Aç-Kapa</span></i>
+                    <i class="fa fa-angle-double-right menu-collapsed__right"></i>
+                </a>
+                <!-- //toggle button end -->
+            </div>
+        </div>
+        <!-- //sidebar menu end -->
+        <!-- header-starts -->
+        <div class="header sticky-header">
+
+        
+            @Html.Action("PartialAdmin","AdminMessage")
+        
+        </div>
+        <!-- //header-ends -->
+        <!-- main content start -->
+        <div class="main-content">
+           
+            <!-- content -->
+            <div class="container-fluid content-top-gap">
+
+                @RenderBody()
+
+
+                <section class="template-cards">
+                </section>
+                <!-- //modals -->
+
+            </div>
+            <!-- //content -->
+        </div>
+        <!-- main content end-->
+    </section>
+    <!--footer section start-->
+    <footer class="dashboard">
+        <p>
+            &copy 2020 Collective. All Rights Reserved | Design by <a href="https://w3layouts.com/" target="_blank"
+                                                                      class="text-primary">W3layouts.</a>
+        </p>
+    </footer>
+    <!--footer section end-->
+    <!-- move top -->
+    <button onclick="topFunction()" id="movetop" class="bg-primary" title="Go to top">
+        <span class="fa fa-angle-up"></span>
+    </button>
+    <script>// When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function () {
+    scrollFunction()
+  };
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      document.getElementById("movetop").style.display = "block";
+    } else {
+      document.getElementById("movetop").style.display = "none";
+    }
+  }
+
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }</script>
+    <!-- /move top -->
+
+
+    <script src="~/web4/assets/js/jquery-3.3.1.min.js"></script>
+    <script src="~/web4/assets/js/jquery-1.10.2.min.js"></script>
+
+    <!-- chart js -->
+    <script src="~/web4/assets/js/Chart.min.js"></script>
+    <script src="~/web4/assets/js/utils.js"></script>
+    <!-- //chart js -->
+    <!-- Different scripts of charts.  Ex.Barchart, Linechart -->
+    <script src="~/web4/assets/js/bar.js"></script>
+    <script src="~/web4/assets/js/linechart.js"></script>
+    <!-- //Different scripts of charts.  Ex.Barchart, Linechart -->
+
+
+    <script src="~/web4/assets/js/jquery.nicescroll.js"></script>
+    <script src="~/web4/assets/js/scripts.js"></script>
+
+    <!-- close script -->
+    <script>var closebtns = document.getElementsByClassName("close-grid");
+  var i;
+
+  for (i = 0; i < closebtns.length; i++) {
+    closebtns[i].addEventListener("click", function () {
+      this.parentElement.style.display = 'none';
+    });
+  }</script>
+    <!-- //close script -->
+    <!-- disable body scroll when navbar is in active -->
+    <script>$(function () {
+    $('.sidebar-menu-collapsed').click(function () {
+      $('body').toggleClass('noscroll');
+    })
+  });</script>
+    <!-- disable body scroll when navbar is in active -->
+    <!-- loading-gif Js -->
+    <script src="~/web4/assets/js/modernizr.js"></script>
+    <script>$(window).load(function () {
+         // Animate loader off screen
+         $(".se-pre-con").fadeOut("slow");;
+     });</script>
+    <!--// loading-gif Js -->
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/web4/assets/js/bootstrap.min.js"></script>
+    @RenderSection("scripts",false)
+
+</body>
+
+</html>

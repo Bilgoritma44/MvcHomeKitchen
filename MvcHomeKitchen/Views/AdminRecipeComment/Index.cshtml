@@ -1,0 +1,31 @@
+﻿@using MvcHomeKitchen.Models.Concrete
+@model List<RecipeComment>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="container">
+    <table class="table table-striped">
+        <tr>
+            <th>Id</th>
+            <th>Yazar</th>
+            <th>Yorum</th>
+            <th>Tarif</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+        @foreach (var x in Model)
+        {
+    <tr>
+        <td>@x.RecipeCommentId</td>
+        <td><img src="@x.Writer.PhotoUrl" class="rounded-circle" style="width:50px;height:50px;" /></td>
+        <td>@x.Context</td>
+        <td>@x.Recipe.Title</td>
+        <td><a href="/AdminRecipeComment/Delete/@x.RecipeCommentId" class="btn btn-outline-danger" id="DeleteBtn" onclick="return confirm('Silmek istediğinize emin misiniz?');"><i class="fa fa-trash"></i> Sil</a></td>
+        <td><a href="/AdminRecipeComment/Update/@x.RecipeCommentId" class="btn btn-outline-warning"><i class="fa fa-edit"></i> Güncelle</a></td>
+    </tr>
+        }
+    </table>
+</div>
+

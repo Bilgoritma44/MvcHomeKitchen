@@ -1,0 +1,23 @@
+﻿@using MvcHomeKitchen.Models.Concrete
+@model List<Category> 
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/FoodLayout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        @foreach (var x in Model)
+        {
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+                <a href="/Category/Detail/@x.CategoryId">   <img class="card-img-top" src="@x.PhotoUrl" style="width:280px;height:180px;" alt="Card image cap"></a>
+                <div class="card-body">
+                    <p class="card-text">@x.Name Tarifleri</p>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+</div>
+

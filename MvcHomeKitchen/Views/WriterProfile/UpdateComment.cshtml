@@ -1,0 +1,25 @@
+﻿@model MvcHomeKitchen.Models.Concrete.RecipeComment
+@{
+    ViewBag.Title = "UpdateComment";
+    Layout = "~/Views/Shared/ProfileLayout.cshtml";
+}
+
+<div class="container">
+    <h4>Yorum Güncelleme Sayfası</h4>
+    @using (Html.BeginForm("UpdateComment", "WriterProfile", FormMethod.Post))
+    {
+
+        <div class="form-group">
+            @Html.HiddenFor(x => x.RecipeCommentId)
+        </div>
+        <div class="form-group">
+            <label><b>Yorum İçerik</b></label>
+            @Html.TextAreaFor(x => x.Context,10,3, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <button class="btn btn-outline-warning float-right">Güncelle</button>
+            <a href="/WriterProfile/MyComment" class="btn btn-outline-danger">Vazgeç</a>
+        </div>
+    }
+</div>
+

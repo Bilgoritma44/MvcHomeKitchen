@@ -1,0 +1,38 @@
+﻿@model MvcHomeKitchen.Models.Concrete.Recipe
+@{
+    ViewBag.Title = "UpdateRecipe";
+    Layout = "~/Views/Shared/ProfileLayout.cshtml";
+}
+
+<div class="container">
+    <h4 class="text-center" style="color:red">Tarif Güncelleme Sayfası</h4>
+    @using (Html.BeginForm("UpdateRecipe", "WriterProfile", FormMethod.Post))
+    {
+        <div class="form-group">
+            @Html.HiddenFor(x => x.RecipeId)
+        </div>
+        <label><b>Resim Url</b></label>
+        @Html.TextBoxFor(x => x.Url, new { @class = "form-control" })
+        <br />
+        <label><b>Başlık</b></label>
+        @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+        <br />
+        <label><b>Tarif</b></label>
+        @Html.TextAreaFor(x => x.Context, 10, 3, new { @class = "form-control" })
+        <br />
+        <label><b>Kaç Kişilik</b></label>
+        @Html.TextBoxFor(x => x.Person, new { @class = "form-control" })
+        <br />
+        <label><b>Hazırlık</b></label>
+        @Html.TextBoxFor(x => x.Preparation, new { @class = "form-control" })
+        <br />
+        <label><b>Pişirme</b></label>
+        @Html.TextBoxFor(x => x.Cooking, new { @class = "form-control" })
+        <br />
+        <label><b>Kategori</b></label>
+        @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.d2, new { @class = "form-control" })
+        <br />
+        <button type="submit" class="btn btn-info float-right">Tarifi Güncelle</button>
+    }
+</div>
+
